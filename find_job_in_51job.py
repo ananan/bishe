@@ -1,13 +1,14 @@
 from selenium import webdriver
 import time
 
-class FindJobs:
+class JobHelper:
 
     '''
     一个前程无忧自动投简历的爬虫，暂时只是按照给定的链接投，没有对登录验证码做自动处理，后续会考虑
+    运行环境：python3.5，selenium库，chrome driver，都可以通过pip install工具安装自行调试好环境即可
     '''
 
-    def login(self):
+    def login(self,account,passwd):              
         driver = webdriver.Chrome()
         driver.maximize_window()
         driver.get('https://login.51job.com/login.php?lang=c') #构造空间链接并访问
@@ -19,8 +20,8 @@ class FindJobs:
             a = False
         if a == True:
             try:
-                driver.find_element_by_id('loginname').send_keys('15917916221')
-                driver.find_element_by_id('password').send_keys('Nihaomingtian9.')
+                driver.find_element_by_id('loginname').send_keys(account)
+                driver.find_element_by_id('password').send_keys(passwd)
                 driver.find_element_by_id('login_btn').click()
                 try:
                     driver.find_element_by_id('verifycode') # 判断是否需要输入验证码
@@ -91,13 +92,13 @@ class FindJobs:
 
 
 if __name__ == '__main__':
-    jobs = FindJobs()
-    driver = jobs.login()
-    urls = ['http://search.51job.com/jobsearch/search_result.php?fromJs=1&jobarea=040000&keyword=Python%20%E5%BC%80%E5%8F%91&keywordtype=2&lang=c&stype=2&postchannel=0000&fromType=1&confirmdate=9']
+    peter_jobs = JobHelper()   # 实例化一个jobhelper
+    driver = jobs.login(‘youraccount’，‘password’)             # 获取登陆后的driver句柄
+    urls = [' ']         # 把工作列表的页面链接放在此列表中，可以防止多个链接
     for url in urls:
         while True:
             driver = jobs.open_page(url)     # 打开一个链接
             jobs.apply_job(driver)           # 申请职位列表全部职位
-            jobs.get_next_page()
+#            jobs.get_next_page()      这个函数写得不是很好，有时候没办法翻页，所以只爬第一页就好了，有需要可以把链接放在urls里
 
 
