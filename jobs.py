@@ -19,8 +19,8 @@ class FindJobs:
             a = False
         if a == True:
             try:
-                driver.find_element_by_id('loginname').send_keys('15917916221')
-                driver.find_element_by_id('password').send_keys('Nihaomingtian9.')
+                driver.find_element_by_id('loginname').send_keys('1111111')
+                driver.find_element_by_id('password').send_keys('111111')
                 driver.find_element_by_id('login_btn').click()
                 try:
                     driver.find_element_by_id('verifycode') # 判断是否需要输入验证码
