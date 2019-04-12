@@ -41,7 +41,7 @@ if __name__ == '__main__':
 	record = 0
 	start = time.time()
 	# open the database
-	db = pymysql.connect(host='localhost',user='root',passwd='alexwei',db='peter',charset='utf8')
+	db = pymysql.connect(host='localhost',user='***',passwd='****',db='peter',charset='utf8')
 	cursor = db.cursor()
 	pages = list(range(int(sys.argv[1]),int(sys.argv[2])))
 	print(pages)

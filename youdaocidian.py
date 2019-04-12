@@ -1,3 +1,5 @@
+import sys
+from pprint import pprint
 import requests
 import hashlib
 import random
@@ -45,11 +47,8 @@ def get_data(word):
     except Exception as e:
         print('Raise Error...',e)
 
-def parse_json(json):
-    print(json)
     
 if __name__ == "__main__":
     word = 'Python is a beautiful language'
-    json = get_data(word)
-    if json is not None:
-        parse_json(get_data(word))
+    input_data = sys.argv[1]
+    pprint(get_data(input_data))

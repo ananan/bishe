@@ -8,7 +8,7 @@ from email.mime.multipart import MIMEMultipart
 import smtplib
 
 class sendMail:
-    def __init__(self, user='1242670917@qq.com', passwd='jyounnlllnrxhchh'):
+    def __init__(self, user='1*******17@qq.com', passwd='jyounnlllnrxhchh'):
         self._user = user
         self._passwd = passwd
         server = smtplib.SMTP_SSL()
@@ -54,7 +54,7 @@ class sendMail:
 
 if __name__=="__main__":
 
-    mailto = ['15917916221@163.com','1242670917@qq.com']
+    mailto = ['1*****@163.com','12*****@qq.com']
     att1 = '/home/peter/PycharmProjects/zhihu/test.py'
     mail = sendMail()
     mail.send_attach_mail(mailto,'this is from peter','nihaoma !',att1)
